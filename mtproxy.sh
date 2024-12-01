@@ -59,15 +59,15 @@ function get_ip_public() {
 }
 
 function get_ip_private() {
-    echo $(ip a | grep inet | grep -v 127.0.0.1 | grep -v inet6 | awk '{print $2}' | cut -d "/" -f1 | awk 'NR==1 {print $1}')
+    echo $(ip a | grep inet | grep -v 0.0.0.0 | grep -v inet6 | awk '{print $2}' | cut -d "/" -f1 | awk 'NR==1 {print $1}')
 }
 
 function get_local_ip(){
-  ip a | grep inet | grep 127.0.0.1 > /dev/null 2>&1
+  ip a | grep inet | grep 0.0.0.0 > /dev/null 2>&1
   if [[ $? -eq 1 ]];then
     echo $(get_ip_private)
   else
-    echo "127.0.0.1"
+    echo "0.0.0.0"
   fi
 }
 
