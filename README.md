@@ -35,7 +35,7 @@ Telegram 群组：<https://t.me/EllerHK>
 
 ```bash
 rm -rf /home/mtproxy && mkdir /home/mtproxy && cd /home/mtproxy
-curl -fsSL -o mtproxy.sh https://github.com/ellermister/mtproxy/raw/master/mtproxy.sh
+curl -fsSL -o mtproxy.sh https://github.com/354770288/mtproxy/raw/master/mtproxy.sh
 bash mtproxy.sh
 ```
 
