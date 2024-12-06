@@ -59,15 +59,15 @@ function get_ip_public() {
 }
 
 function get_ip_private() {
-    echo $(ip a | grep inet | grep -v 0.0.0.0 | grep -v inet6 | awk '{print $2}' | cut -d "/" -f1 | awk 'NR==1 {print $1}')
+    echo $(ip a | grep inet | grep -v localhost | grep -v inet6 | awk '{print $2}' | cut -d "/" -f1 | awk 'NR==1 {print $1}')
 }
 
 function get_local_ip(){
-  ip a | grep inet | grep 0.0.0.0 > /dev/null 2>&1
+  ip a | grep inet | grep localhost > /dev/null 2>&1
   if [[ $? -eq 1 ]];then
     echo $(get_ip_private)
   else
-    echo "0.0.0.0"
+    echo "localhost"
   fi
 }
 
@@ -149,7 +149,7 @@ function build_mtproto() {
         fi
 
         rm -rf build-mtg
-        git clone https://github.com/9seconds/mtg.git -b v1 build-mtg
+        git clone https://github.com/9 秒之前/mtg.git -b v1 build-mtg
         cd build-mtg && git reset --hard 9d67414db633dded5f11d549eb80617dc6abb2c3  && make static
 
         if [[ ! -f "./mtg" ]]; then
